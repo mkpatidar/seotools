@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Seotools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/_all-skins.min.css">
+    <link rel="stylesheet" href="/styles/AdminLTE.min.css">
+    <link rel="stylesheet" href="/styles/blue.css">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/bootstrap3-wysihtml5.min.css">
+    <link rel="stylesheet" href="/styles/datepicker3.css">
+    <link rel="stylesheet" href="/styles/daterangepicker.css">
+    <link rel="stylesheet" href="/styles/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/importer.less">
+    <link rel="stylesheet" href="/styles/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet" href="/styles/morris.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <!--STYLES END-->
+
+    <script type="text/javascript">
+      if(typeof <%= web_domain_url %> && <%= web_domain_url %> != 'undefined'){
+        var web_domain_url = '<%= web_domain_url %>';
+      }else{
+        var web_domain_url = '';
+      }
+    </script>
+
+    <style type="text/css">
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+    </style>
+
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini" ng-app="seotoolApp">
+    <div class="wrapper" ng-controller="<%= angularCtrl %>Ctrl" ng-cloak>
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-mini">
+            <img src="/images/logo.png" style="width:95%;">
+          </span>
+          <span class="logo-lg">
+            <img src="/images/logo.png" style="width:55%;">
+          </span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <span class="top-search-bar" ng-init="get_webpage_details($event,web_domain_url);">
+            <form class="form-inline" name="webSearchForm">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="web_domain_url"  placeholder="Please enter domain, keyword or URL" required>
+                  <span class="input-group-btn">
+                    <!-- <button class="btn btn-secondary" type="button" ng-click="get_webpage_details($event,web_domain_url)" ng-disabled="webSearchForm.$invalid">Go</button> -->
+                    <a href="/dashboard/report/{{web_domain_url}}" class="btn btn-warning" ng-disdabled="webSearchForm.$invalid">Go</a>
+                  </span>
+                </div>
+              </div>
+            </form>
+          </span>
+
+          <!-- RIGHT SIDE TOP HEADER MENUS ARE COMING HERE -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              
+            </ul>
+          </div>
+
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="/images/default-avatar.png" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <% if(req.session.current_user && req.session.current_user.firstName){ %>
+                <p><%= req.session.current_user.firstName %> <%= req.session.current_user.lastName %></p>
+                <a href="/user/logout" style="color:#5DBCD2;"><i class='fa fa-power-off'></i> Logout</a>
+              <% }else{ %>
+                <p>John Doe</p>
+                <a href="/" style="color:#5DBCD2;"><i class='fa fa-power-off'></i> Logout</a>
+              <% } %>
+            </div>
+          </div>
+          
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li>&nbsp;</li>
+            <li class="header">&nbsp;</li>
+            <li><a href="#"><i class="fa fa-flash"></i> <span>On Site</span></a></li>
+            <li><a href="#"><i class="fa fa-flask"></i> <span>Off Site</span></a></li>
+            <li><a href="#"><i class="fa fa-adjust"></i> <span>Traffic</span></a></li>
+          </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1><%= title %></h1>
+          <ol class="breadcrumb">
+            <li><a href="/dashboard/"><i class="fa fa-home"></i>Home</a></li>
+            <li class="active"><%= title %></li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <%- body %>
+        </section>
+        <!-- /.content -->
+      </div>
+       <!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <strong>Copyright &copy; 2014-2017 <a href="http://almsaeedstudio.com">Seotools</a>.</strong> All rights
+         reserved.
+      </footer>
+    </div>
+    <!-- ./wrapper -->
+
+    <!--SCRIPTS-->
+    <script src="assets/js/dependencies/sails.io.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-2.2.3.min.js"></script>
+    <script src="/js/jquery.knob.js"></script>
+    <script src="/js/app.min.js"></script>
+    <!--SCRIPTS END-->
+
+    <!-- Echarts related files -->
+    <script src="/echarts/dist/echarts-plain-original.js"></script>
+    <script src="/echarts/dist/angular-echarts.min.js"></script>
+
+    <!-- ANGULAR CONTROLLERS -->
+    <script src="/js/inc_dashboardController.js"></script>
+  </body>
+</html>

@@ -1,0 +1,257 @@
+<h2>Optimize</h2>
+<section class='content-section' ng-init="get_webpage_details($event,'<%= web_domain_url %>')" ng-cloak>
+	<div class='row'>
+    <!-- LOADING IMAGE BAR -->
+		<div class="col-md-12" ng-show="data_processing_onserver" align="center">
+			<br><br><br><br><br>
+			<img src="/images/loader.gif" class="loader_img"><br>
+			<p><b>Please Wait !<br>
+			Data is processing...</b></p>
+		</div>
+
+		<div class='col-md-12' ng-show="html_data_json.title && !data_processing_onserver">
+			<legend>SEO</legend>
+			<!-- TITLE TAGS -->
+			<div class='col-md-12 web-details-bar' > 
+				<div class="col-md-3">
+					<div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Title Tag </b> </div>
+        </div>
+				<div class="col-md-9">
+          <p> {{html_data_json.title}} </p>
+          <P> <b>Length: </b>{{html_data_json.length_of_the_title}} character(s) </P>
+				</div>
+			</div>
+
+			<!-- META DESCRIPTIONS -->
+      <div class='col-md-12 web-details-bar' > 
+        <div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Meta Descriptions </b> </div>
+        </div>
+        <div class="col-md-9">
+          <p> {{html_data_json.meta_description}} </p>
+          <p> <b>Length: </b>{{html_data_json.length_of_meta_description}} character(s) </p>
+        </div>
+      </div>
+			
+			<!-- HEADINGS -->
+			<div class='col-md-12 web-details-bar' > 
+				<div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Headings </b> </div>
+        </div>
+				<div class="col-md-9">
+					<div class='table-responsive'>
+						<table class='table table-striped'>
+							<thead>
+								<tr class='info'>
+									<th><b>&lt;H1&gt;</b></th>
+									<th><b>&lt;H2&gt;</b></th>
+									<th><b>&lt;H3&gt;</b></th>
+									<th><b>&lt;H4&gt;</b></th>
+									<th><b>&lt;H5&gt;</b></th>
+									<th><b>&lt;H6&gt;</b></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>{{html_data_json.heading1.count1}}</td>
+									<td>{{html_data_json.heading2.count2}}</td>
+									<td>{{html_data_json.heading3.count3}}</td>
+									<td>{{html_data_json.heading4.count4}}</td>
+									<td>{{html_data_json.heading5.count5}}</td>
+									<td>{{html_data_json.heading6.count6}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class='table-responsive'>
+						<table class='table table-striped table-bordered'>
+							<tr>
+								<td><b>&lt;H1&gt;</b></td>
+								<td>
+									<span ng-repeat="meta_key in html_data_json.heading1.h1">
+		  							{{meta_key}}<span ng-show="$index+1 != html_data_json.heading1.h1.length">,</span>
+		  						</span>
+								</td>
+							</tr>
+							
+							<tr>
+								<td><b>&lt;H2&gt;</b></td>
+								<td>
+									<span ng-repeat="meta_key in html_data_json.heading2.h2">
+		  							{{meta_key}}<span ng-show="$index+1 != html_data_json.heading2.h2.length">,</span>
+		  						</span>
+								</td>
+							</tr>
+							
+							<tr>
+								<td><b>&lt;H3&gt;</b></td>
+								<td>
+									<span ng-repeat="meta_key in html_data_json.heading3.h3">
+		  							{{meta_key}}<span ng-show="$index+1 != html_data_json.heading3.h3.length">,</span>
+		  						</span>
+								</td>
+							</tr>
+
+							<tr>
+                <td><b>&lt;H4&gt;</b></td>
+                <td>
+                  <span ng-repeat="meta_key in html_data_json.heading4.h4">
+                    {{meta_key}}<span ng-show="$index+1 != html_data_json.heading4.h4.length">,</span>
+                  </span>
+                </td>
+              </tr>
+
+              <tr>
+                <td><b>&lt;H5&gt;</b></td>
+                <td>
+                  <span ng-repeat="meta_key in html_data_json.heading5.h5">
+                    {{meta_key}}<span ng-show="$index+1 != html_data_json.heading5.h5.length">,</span>
+                  </span>
+                </td>
+              </tr>
+
+              <tr>
+								<td><b>&lt;H6&gt;</b></td>
+								<td>
+									<span ng-repeat="meta_key in html_data_json.heading6.h6">
+		  							{{meta_key}}<span ng-show="$index+1 != html_data_json.heading6.h6.length">,</span>
+		  						</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+
+      <!-- META KEYWORDS -->
+      <div class='col-md-12 web-details-bar' > 
+        <div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Meta Keywords </b> </div>
+        </div>
+        <div class="col-md-9">
+          <p>
+            <span ng-repeat="meta_value in html_data_json.meta_keywords track by $index">
+              {{meta_value}}<span ng-show="$index+1 != html_data_json.meta_Keywords.length">,</span>
+            </span>
+          </p>
+          <p>{{ html_data_json.meta_keywords.length }} Keywords </p>
+
+        </div>
+      </div>
+
+      <!-- IN PAGE LINKS -->
+      <div class='col-md-12 web-details-bar' > 
+        <div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;In-Page Links </b> </div>
+        </div> 
+        <div class="col-md-9">
+          We found a total of {{ html_data_json.inlinks.length + html_data_json.outlinks.length }} link(s) including 0 link(s) to files
+
+          <!-- <pie-chart config="config" data="data"></pie-chart> -->
+
+        </div>
+      </div>
+
+      <!-- ENCONDING -->
+      <div class='col-md-12 web-details-bar' > 
+        <div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Encoding </b> </div>
+        </div> 
+        <div class="col-md-9">
+          {{html_data_json.encoding}}
+        </div>
+      </div>
+      
+      <!-- DOCTYPE -->
+      <div class='col-md-12 web-details-bar' > 
+        <div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Doctype </b> </div>
+        </div> 
+        <div class="col-md-9">
+          {{html_data_json.doctype}}
+        </div>
+      </div>
+
+      <!-- LANGUAGE -->
+      <div class='col-md-12 web-details-bar' > 
+        <div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Language </b> </div>
+        </div> 
+        <div class="col-md-9">
+          {{html_data_json.language}}
+        </div>
+      </div>
+
+      <!-- FAVICON -->
+      <div class='col-md-12 web-details-bar' > 
+        <div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Favicon </b> </div>
+        </div> 
+        <div class="col-md-9">
+          <img src="{{html_data_json.favicon}}">
+        </div>
+      </div>
+
+      <!-- CANONICAL VALUE -->
+      <div class='col-md-12 web-details-bar' > 
+        <div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Canonical Value </b> </div>
+        </div> 
+        <div class="col-md-9">
+          {{html_data_json.canonical_value}}
+        </div>
+      </div>
+
+      <!-- INLINKS -->
+      <div class='col-md-12 web-details-bar' style="word-wrap: break-word;"> 
+        <div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Inlinks </b> </div>
+        </div> 
+        <div class="col-md-9">
+          <span ng-repeat="inlink in html_data_json.inlinks track by $index">
+            {{inlink}}<span ng-show="$index+1 != html_data_json.inlinks.length">,</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- OUTLINKS -->
+      <div class='col-md-12 web-details-bar' style="word-wrap: break-word;"> 
+        <div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Outlinks </b> </div>
+        </div> 
+        <div class="col-md-9">
+          <span ng-repeat="outlink in html_data_json.outlinks track by $index">
+            {{outlink}}<span ng-show="$index+1 != html_data_json.outlinks.length">,</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- OUTLINKS -->
+      <div class='col-md-12 web-details-bar' > 
+        <div class="col-md-3">
+          <div class="icon_div"><i class="fa fa-tint"></i> </div>
+          <div class="text_div"> <b> &nbsp;&nbsp;&nbsp;Content </b> </div>
+        </div> 
+        <div class="col-md-9">
+          <div><b>Length: {{html_data_json.content_length}}</b></div>
+          {{html_data_json.content}}
+        </div>
+      </div>
+
+		</div>
+	</div>
+</section>
+
+<!-- <pre ng-bind="html_data_json | json"></pre> -->

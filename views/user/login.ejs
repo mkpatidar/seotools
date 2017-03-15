@@ -1,0 +1,254 @@
+<link rel="stylesheet" href="/styles/bootstrap.min.css">
+<link rel="stylesheet" href="/styles/font-awesome.min.css">
+<link rel="stylesheet" href="/styles/style.css">
+<link rel="stylesheet" href="/homepage/style.css">
+<div >
+  <div  ng-cloak>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+          </button>
+          <a class="navbar-brand" href="/"> <img src="/images/logo.png"></a> 
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li> <a href="#">Features</a> </li>
+            <li> <a href="#">Plans & Pricing</a> </li>
+            <li> <a href="#">Compare</a> </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Help <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">FAQ's</a></li>
+                <li><a href="#">Video Tutorials</a></li>
+                <li> <a href="#">Contact Us</a> </li>
+              </ul>
+            </li>
+            <li> <a href="#">Log in </a> </li>
+            <li class="free-trial-btn">
+              <a href="/user/signup" class='btn btn-default'>Free Trial </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="work-shop" class="login-signup-div">
+      <div class="container">
+      	<div class='col-md-12'>
+      		<h1>Welcome back!</h1>
+      		<h4>Sign in with your account data</h4>
+      	</div>
+
+        <div class="row">
+	        <div class="col-md-6 form-div">
+		        <div class="col-md-12">
+		        	<h4>Welcome back!</h4>
+		        	<p>If you are already a member of Seotools, please enter your login details in the form below.</p>
+
+              <% if(flash && flash.error){ %>
+                <p class="error fade in" style="color:#ea4746;"><%= flash.error %></p>
+              <% } //end of if flash.error %>
+
+		        	<form action="/user/do_login">
+		        	  <div class="form-group">
+		        	    <label>Email</label>
+		        	    <input type="email" class="form-control" name="email" placeholder="Email" required>
+		        	  </div>
+		        	  <div class="form-group">
+		        	    <label>Password</label>
+		        	    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+		        	  </div>
+		        	  <div class="checkbox">
+		        	    <label> <input type="checkbox"> Remember Me </label>
+		        	  	<button type="submit" class="btn btn-warning pull-right">Login</button>
+		        	  </div>
+		        	</form>
+
+		        </div>
+	        </div>
+	        <div class="col-md-6 social-link-div">
+	        	<div class="col-md-12">
+	        		<h4>Connect with social network</h4>
+			        <div align='center'>
+			        	<button class='btn btn-primary btn-block'><i class='fa fa-facebook'></i> &nbsp;&nbsp;&nbsp;Sign in with Facebook </button>
+			        	<button class='btn btn-danger btn-block'><i class='fa fa-google-plus'></i> &nbsp;&nbsp;&nbsp;Sign in with Google+ </button>
+			        	<button class='btn btn-warning btn-block'><i class='fa fa-twitter'></i> &nbsp;&nbsp;&nbsp;Sign in with Twitter </button>
+			        	<button class='btn btn-info btn-block'><i class='fa fa-linkedin'></i> &nbsp;&nbsp;&nbsp;Sign in with LinkedIn </button>
+			        	<button class='btn btn-success btn-block'><i class='fa fa-pinterest'></i> &nbsp;&nbsp;&nbsp;Sign in with Pinterest </button>
+			        	<button class='btn btn-primary btn-block'><i class='fa fa-youtube'></i> &nbsp;&nbsp;&nbsp;Sign in with Youtube </button>
+			        </div>
+			        <hr>
+			        <div align='right'>
+			        	<span> Don’t have an account? <a href="/user/signup">Sign Up Free</a> </span><br>
+			        	<span>Forgot your Password? <a href="">Recover your password</a>.</span><br>
+			        	<span>Need Help? <a href="">Contact us</a></span><br>
+			        </div>
+	        	</div>
+
+	        </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="footer homepage-footer" style="font-wieght:400;">
+      <div class="container">
+        
+        <div class="col-md-12">
+          <div class="col-md-4">
+            <span style="border:1px solid gray;padding:5px 10px">
+              <img src="/images/flags/us.png"> US 
+            </span>
+            &nbsp;&nbsp;+1-555-914-5282
+            <br>
+            <br>
+            <span>US customers, Toll-Free</span><br>
+            <span style="font-size:12px;">
+            Lorem ipsum dolor sit amet,<br>
+            consectetur adipisicing elit,<br>
+            sed do eiusmod tempor incididunt ut labore
+            </span>
+          </div>
+
+          <div class="col-md-4">
+            <span style="border:1px solid gray;padding:5px 10px">
+              <img src="/images/flags/uk.png"> UK
+            </span>
+            &nbsp;&nbsp;0-707-599-8269
+            <br>
+            <br>
+            <span>Europe customers, Toll-Free</span><br>
+            <span style="font-size:12px;">
+            Lorem ipsum dolor sit amet,<br>
+            consectetur adipisicing elit,<br>
+            sed do eiusmod tempor incididunt ut labore
+            </span>
+          </div>
+          
+          <div class="col-md-4">
+            <button class="btn btn-success btn-block" ng-click="show_free_signup_modal($event)">Get started with Seotools!</button>
+            <br>
+            <div align='center'>
+              <a href="">or see our plans & prices</a>
+            </div>
+          </div>
+        </div>
+
+        <p>&nbsp;</p>
+        <div class="col-md-12">
+          <div class='col-md-12' align='center' style="border:1px solid #4c4c4c;padding:15px;">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, &nbsp;&nbsp;&nbsp; <i class="fa fa-envelop"></i> mail@seotool.com
+          </div>
+        </div>
+        <p>&nbsp;</p>
+        
+        <div class="col-md-12" align="left">
+          <div class="col-md-2 col-sm-4">
+            <ul class=''>
+              <li><b>SEOTOOLS</b></li>
+              <li><a href="">Training & Support</a></li>
+              <li><a href="">Blog</a></li>
+              <li><a href="">FAQ's</a></li>
+              <li><a href="">Resources</a></li>
+              <li><a href="">Free Tools</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2 col-sm-4">
+            <ul class=''>
+              <li><b>HELP</b></li>
+              <li><a href="">Affiliates</a></li>
+              <li><a href="">TOA</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2 col-sm-4">
+            <ul class=''>
+              <li><b>COMMUNITY</b></li>
+              <li><a href="">Disclaimer</a></li>
+              <li><a href="">Contact Info</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2 col-sm-4">
+            <ul class=''>
+              <li><b>LEGAL INFO</b></li>
+              
+            </ul>
+          </div>
+          <div class="col-md-2 col-sm-4">
+            <ul class=''>
+              <li><b>FOLLOW US</b></li>
+              <li><a href=""><i class="fa fa-google-plus"></i> Google plus </a></li>
+              <li><a href=""><i class="fa fa-facebook"></i> &nbsp;&nbsp;Facebook </a></li>
+              <li><a href=""><i class="fa fa-twitter"></i> &nbsp;Twitter </a></li>
+              <li><a href=""><i class="fa fa-linkedin"></i> &nbsp;Linkedin </a></li>
+              <li><a href=""><i class="fa fa-pinterest"></i> &nbsp;Pinterest </a></li>
+              <li><a href=""><i class="fa fa-youtube"></i> &nbsp;Youtube </a></li>
+            </ul>
+          </div>
+          <div class="col-md-2 col-sm-4">
+            <ul class=''>
+              <li><b>LANGUAGE</b></li>
+              <li><a href="">English</a></li>
+              <li><a href="">Español</a></li>
+              <li><a href="">Deutsch</a></li>
+              <li><a href="">Français</a></li>
+              <li><a href="">Italiano</a></li>
+              <li><a href="">Português (Brasil)</a></li>
+              <li><a href="">Русский</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      
+      <div style='background-color:#000;padding:10px;margin-bottom:-20px;'>
+        <div class='container'>
+          <span style="font-size:32px;"><b>SEOTOOLS</b></span> &nbsp;&nbsp;&nbsp;
+          <span> Seotools © 2008 - 2017 Seotlls. All rights reserved. </span> 
+          <span class="pull-right" style="margin-top:15px;"><a href="">Switch to mobile version &nbsp;&nbsp;<i class="fa fa-mobile"></i></a></span>
+        </div>
+      </div>
+    </footer>
+
+  </div>  
+</div>  
+
+<script src="/js/jquery.min.js"></script>
+<!-- <script src="/js/angular.min.js"></script>
+<script src="/js/app.js"></script> -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- <script src="/homepage/custom.js"></script>
+<script src="/echarts/dist/echarts-plain-original.js"></script>
+<script src="/echarts/dist/angular-echarts.min.js"></script>
+<script src="/js/inc_dashboardController.js"></script>
+ -->
+<style type="text/css">
+	.login-signup-div{
+		margin-top: 86px;
+		padding: 10px 0px 30px 0px;
+	}
+	.login-signup-div .col-md-6 .col-md-12{
+		background-color: #fff;
+		min-height: 80vh;
+		border: 1px solid #d4d4d4;
+		box-shadow: 0px 1px 5px #cccccc;
+		padding: 10px 20px;
+	}
+	.login-signup-div .social-link-div .btn{
+		width: 60%
+	}
+</style>
+</style>
+
+<script type="text/javascript">
+  $('.navbar .dropdown').hover(function() {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(150);
+  }, function() {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(105)
+  });
+</script>
